@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Banquet from './pages/banquet/Banquet'
+import Contact from './pages/contact/Context'
 import Gallery from './pages/gallery/Gallery'
 import Home from './pages/Home/Home'
 import Restaurant from './pages/Restaurant/Restaurant'
@@ -16,6 +17,7 @@ function App() {
   <Restaurant/>
   <Banquet/>
   <Gallery/>
+  <Contact/>
   </>
   )
 }
