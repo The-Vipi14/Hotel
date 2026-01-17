@@ -7,7 +7,7 @@ const Home = () => {
         <h1>Welcome</h1>
         <p>Luxury • Comfort • Elegance</p>
 
-        <div className="booking-box">
+        {/* <div className="booking-box">
           <input type="date" />
           <input type="date" />
 
@@ -19,7 +19,7 @@ const Home = () => {
           </select>
 
           <button>Check Availability</button>
-        </div>
+        </div> */}
       </div>
     </section>
   )
