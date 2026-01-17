@@ -9,19 +9,38 @@ import Restaurant from "./pages/Restaurant/Restaurant";
 import Rooms from "./pages/rooms/Rooms";
 
 function App() {
+  // return (
+  //   <>
+  //     <Navbar />
+  //     <Routes>
+  //       <Route path="/" element={<Home />} />
+  //       <Route path="/rooms" element={<Rooms />} />
+  //       <Route path="/restaurant" element={<Restaurant />} />
+  //       <Route path="/banquet" element={<Banquet />} />
+  //       <Route path="/gallery" element={<Gallery />} />
+  //       <Route path="/cantact" element={<Contact />} />
+  //     </Routes>
+  //     <Footer />
+  //   </>
+  // );
+
   return (
-    <>
+    <div className="app">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/rooms" element={<Rooms />} />
-        <Route path="/restaurant" element={<Restaurant />} />
-        <Route path="/banquet" element={<Banquet />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/cantact" element={<Contact />} />
-      </Routes>
+
+      <main className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rooms" element={<Rooms />} />
+          <Route path="/restaurant" element={<Restaurant />} />
+          <Route path="/banquet" element={<Banquet />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+
       <Footer />
-    </>
+    </div>
   );
 }
 

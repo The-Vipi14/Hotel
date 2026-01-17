@@ -43,12 +43,12 @@
 }
 
 .footer-bottom {
-  margin-top: 40px;
+  margin-top: 30px;
   text-align: center;
   font-size: 13px;
   color: #aaa;
   border-top: 1px solid #222;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 @media (max-width: 1024px) {
@@ -69,9 +69,5 @@
   .footer-container {
     grid-template-columns: 1fr;
     gap: 35px;
-  }
-
-  .footer-section h3 {
-    font-size: 22px;
   }
 }
