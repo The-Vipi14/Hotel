@@ -19,19 +19,31 @@
 
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 28px;
   list-style: none;
 }
 
 .nav-links li {
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li:hover {
+  color: #c9a14a;
 }
 
 .book-btn {
-  background: goldenrod;
+  background: #c9a14a;
   border: none;
   padding: 10px 18px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  background: #b18c3a;
 }

@@ -1,0 +1,69 @@
+.hero {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb")
+    center/cover no-repeat;
+  position: relative;
+}
+
+.hero-overlay {
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.65)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 60px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.hero-overlay p {
+  font-size: 18px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.booking-box {
+  margin-top: 40px;
+  background: white;
+  padding: 22px 25px;
+  display: flex;
+  gap: 15px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.booking-box input,
+.booking-box select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.booking-box button {
+  background: #c9a14a;
+  color: black;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.booking-box button:hover {
+  background: #b18c3a;
+  transform: translateY(-2px);
+}
