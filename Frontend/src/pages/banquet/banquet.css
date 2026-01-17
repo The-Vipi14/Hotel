@@ -1,0 +1,104 @@
+.banquet {
+  background: #fff;
+}
+
+/* Hero Section */
+.banquet-hero {
+  height: 60vh;
+  background: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed")
+    center/cover no-repeat;
+  position: relative;
+}
+
+.banquet-overlay {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.banquet-overlay h2 {
+  font-size: 48px;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.banquet-overlay p {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Content */
+.banquet-content {
+  padding: 100px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.banquet-info h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.banquet-info p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.banquet-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.banquet-info li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* Booking Form */
+.event-booking {
+  background: #f8f8f8;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.event-booking h3 {
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.event-booking form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.event-booking input,
+.event-booking select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.event-booking button {
+  background: #c9a14a;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.event-booking button:hover {
+  background: #b18c3a;
+}
