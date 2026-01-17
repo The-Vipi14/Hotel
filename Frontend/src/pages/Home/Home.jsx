@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <section className="hero">
       <div className="hero-overlay">
-        <h1>Welcome to Radiant Plaza</h1>
+        <h1>Welcome</h1>
         <p>Luxury • Comfort • Elegance</p>
 
         <div className="booking-box">
