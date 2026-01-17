@@ -2,17 +2,15 @@
   background: #fff;
 }
 
-/* Hero Section */
 .restaurant-hero {
   height: 60vh;
   background: url("https://images.unsplash.com/photo-1552566626-52f8b828add9")
     center/cover no-repeat;
-  position: relative;
 }
 
 .restaurant-overlay {
   height: 100%;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0,0,0,0.55);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,17 +21,15 @@
 
 .restaurant-overlay h2 {
   font-size: 48px;
-  letter-spacing: 1.5px;
   margin-bottom: 10px;
 }
 
 .restaurant-overlay p {
   letter-spacing: 3px;
-  text-transform: uppercase;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
-/* Content */
 .restaurant-content {
   padding: 100px 80px;
   display: grid;
@@ -62,7 +58,6 @@
   font-size: 15px;
 }
 
-/* Booking Form */
 .table-booking {
   background: #f8f8f8;
   padding: 35px;
@@ -85,7 +80,6 @@
 .table-booking select {
   padding: 12px;
   border: 1px solid #ddd;
-  font-size: 14px;
   border-radius: 4px;
 }
 
@@ -96,9 +90,21 @@
   font-weight: 600;
   cursor: pointer;
   border-radius: 4px;
-  transition: background 0.3s ease;
 }
 
-.table-booking button:hover {
-  background: #b18c3a;
+@media (max-width: 1024px) {
+  .restaurant-content {
+    padding: 80px 40px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .restaurant-overlay h2 {
+    font-size: 32px;
+  }
+
+  .restaurant-content {
+    padding: 60px 20px;
+  }
 }

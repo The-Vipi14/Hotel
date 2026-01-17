@@ -36,13 +36,13 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="map">
+      {/* <div className="map">
         <iframe
           title="hotel-location"
           src="https://www.google.com/maps?q=New%20Delhi&output=embed"
           loading="lazy"
         ></iframe>
-      </div>
+      </div> */}
     </section>
   )
 }
