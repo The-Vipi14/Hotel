@@ -1,4 +1,4 @@
-.banquet {
+/* .banquet {
   background: #fff;
 }
 
@@ -106,5 +106,192 @@
 
   .banquet-content {
     padding: 60px 20px;
+  }
+} */
+.banquet {
+  background: #fff;
+}
+
+.banquet-hero {
+  position: relative;
+  height: 65vh;
+  overflow: hidden;
+}
+
+.banquet-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.banquet-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.banquet-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.banquet-overlay h2 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.banquet-overlay p {
+  letter-spacing: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.banquet-content {
+  padding: 110px 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 70px;
+}
+
+.banquet-info h3 {
+  font-size: 32px;
+  margin-bottom: 22px;
+}
+
+.banquet-info p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.banquet-highlights {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.banquet-highlights li {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.event-booking {
+  background: #ffffff;
+  padding: 46px;
+  border-radius: 22px;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.08),
+    0 10px 25px rgba(0,0,0,0.05);
+}
+
+.event-booking h3 {
+  font-size: 26px;
+  margin-bottom: 28px;
+}
+
+.event-booking form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.event-booking input,
+.event-booking select {
+  height: 52px;
+  padding: 0 16px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.event-booking input:focus,
+.event-booking select:focus {
+  border-color: #c9a14a;
+  background: #fff;
+  outline: none;
+}
+
+.event-booking button {
+  margin-top: 10px;
+  height: 54px;
+  background: #c9a14a;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.event-booking button:hover {
+  background: #b18c3a;
+  transform: translateY(-2px);
+}
+
+.banquet-gallery {
+  background: #f4f5f7;
+  padding: 110px 80px;
+  text-align: center;
+}
+
+.banquet-gallery h3 {
+  font-size: 34px;
+  margin-bottom: 50px;
+}
+
+.banquet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.banquet-grid img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.4s ease;
+}
+
+.banquet-grid img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .banquet-content {
+    grid-template-columns: 1fr;
+    padding: 80px 40px;
+  }
+
+  .banquet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .banquet-overlay h2 {
+    font-size: 32px;
+  }
+
+  .banquet-content,
+  .banquet-gallery {
+    padding: 60px 20px;
+  }
+
+  .banquet-grid {
+    grid-template-columns: 1fr;
   }
 }
