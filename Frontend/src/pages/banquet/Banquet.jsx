@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react"
-import "./banquet.css"
+import { useEffect, useState } from "react";
+import "./banquet.css";
 
 const images = [
   "https://images.unsplash.com/photo-1542665952-14513db15293?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1520033222127-8f6d08b425f6?q=80&w=1381&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1624763149686-1893acf73092?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1592861956120-e524fc739696",
-  "https://plus.unsplash.com/premium_photo-1661775263105-57b126d6bb4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-]
+  "https://plus.unsplash.com/premium_photo-1661775263105-57b126d6bb4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+];
 
 const Banquet = () => {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(prev => (prev + 1) % images.length)
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [])
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 1800);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="banquet">
@@ -31,8 +31,10 @@ const Banquet = () => {
         ))}
 
         <div className="banquet-overlay">
-          <h2>Banquet & Events</h2>
-          <p>Celebrate your special moments with elegance</p>
+          <h2 data-aos="fade-down">Banquet & Events</h2>
+          <p data-aos="fade-down">
+            Celebrate your special moments with elegance
+          </p>
         </div>
       </div>
 
@@ -87,16 +89,40 @@ const Banquet = () => {
         <h3>Moments from Our Events</h3>
 
         <div className="banquet-grid">
-          <img src="https://images.unsplash.com/photo-1579254216656-3c0c16a3bdd6?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-          <img src="https://images.unsplash.com/photo-1675247488725-22d1b78e75db?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-          <img src="https://plus.unsplash.com/premium_photo-1673626578328-d72e1e75202b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-          <img src="https://plus.unsplash.com/premium_photo-1678310301887-dad749ca881d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-          <img src="https://images.unsplash.com/photo-1666617710768-425d2d9088f8?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-          <img src="https://images.unsplash.com/photo-1568530873454-e4103a0b3c71?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+          <img
+            data-aos="fade-up"
+            src="https://images.unsplash.com/photo-1579254216656-3c0c16a3bdd6?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <img
+            data-aos="fade-up"
+            src="https://images.unsplash.com/photo-1675247488725-22d1b78e75db?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <img
+            data-aos="fade-up"
+            src="https://plus.unsplash.com/premium_photo-1673626578328-d72e1e75202b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <img
+            data-aos="fade-up"
+            src="https://plus.unsplash.com/premium_photo-1678310301887-dad749ca881d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <img
+            data-aos="fade-up"
+            src="https://images.unsplash.com/photo-1666617710768-425d2d9088f8?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <img
+            data-aos="fade-up"
+            src="https://images.unsplash.com/photo-1568530873454-e4103a0b3c71?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Banquet
+export default Banquet;
