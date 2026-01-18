@@ -1,5 +1,5 @@
-import "./footer.css"
-
+import "./footer.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -15,12 +15,51 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
-            <li>Home</li>
-            <li>Rooms</li>
-            <li>Restaurant</li>
-            <li>Banquet</li>
-            <li>Gallery</li>
-            <li>Contact</li>
+            <li>
+              <Link style={{ textDecoration: "none", color: "#fff" }} to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/rooms"
+              >
+                Rooms
+              </Link>
+            </li>
+            <li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/restaurant"
+              >
+                Restaurant
+              </Link>
+            </li>
+            <li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/banquet"
+              >
+                Banquet
+              </Link>
+            </li>
+            <li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/gallery"
+              >
+                Gallery
+              </Link>
+            </li>
+            <li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/contact"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -36,7 +75,7 @@ const Footer = () => {
         © {new Date().getFullYear()} Ananda Hotel. All rights reserved.
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

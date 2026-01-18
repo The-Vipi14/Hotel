@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./restaurant.css"
 import api from "../../utils/api"
+import { toast } from "react-toastify"
 
 const images = [
   "https://images.unsplash.com/photo-1552566626-52f8b828add9",
@@ -35,7 +36,7 @@ const Restaurant = () => {
       const res = await api.post("/tables/book-table", formData)
 
       if (res.data.success) {
-        alert("Table reserved successfully")
+        toast.success("Table reserved successfully")
         setFormData({
           name: "",
           phone: "",
@@ -45,7 +46,7 @@ const Restaurant = () => {
         })
       }
     } catch (err) {
-      alert("Table booking failed")
+      toast.error("Table booking failed")
       console.error(err)
     }
   }

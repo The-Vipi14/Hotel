@@ -10,21 +10,6 @@ import Rooms from "./pages/rooms/Rooms";
 import Reservation from "./pages/reservation/Reservation";
 
 function App() {
-  // return (
-  //   <>
-  //     <Navbar />
-  //     <Routes>
-  //       <Route path="/" element={<Home />} />
-  //       <Route path="/rooms" element={<Rooms />} />
-  //       <Route path="/restaurant" element={<Restaurant />} />
-  //       <Route path="/banquet" element={<Banquet />} />
-  //       <Route path="/gallery" element={<Gallery />} />
-  //       <Route path="/cantact" element={<Contact />} />
-  //     </Routes>
-  //     <Footer />
-  //   </>
-  // );
-
   return (
     <div className="app">
       <Navbar />

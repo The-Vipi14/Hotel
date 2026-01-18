@@ -1,6 +1,8 @@
 import { useState } from "react"
 import "./contact.css"
 import api from "../../utils/api"
+import { toast } from "react-toastify"
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +19,7 @@ const Contact = () => {
       const res = await api.post("/contact", formData)
 
       if (res.data.success) {
-        alert("Message sent successfully")
+        toast.success("Message sent successfully")
         setFormData({
           name: "",
           email: "",
@@ -26,8 +28,7 @@ const Contact = () => {
         })
       }
     } catch (err) {
-      alert("Failed to send message")
-      console.error(err)
+      toast.error("Failed to send message")
     }
   }
 

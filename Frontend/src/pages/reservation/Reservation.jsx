@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./reservation.css";
 import api from "../../utils/api";
-
+import { toast } from "react-toastify";
 const Reservation = () => {
   const [active, setActive] = useState("room");
   const [successMessage, setSuccessMessage] = useState("");
@@ -15,7 +15,7 @@ const Reservation = () => {
       setTimeout(() => setSuccessMessage(""), 5000);
       e.target.reset();
     } catch (err) {
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
       console.error(err);
     }
   };

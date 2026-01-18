@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
+import { toast } from "react-toastify";
 
 const images = [
   "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
@@ -14,6 +15,7 @@ const Home = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
+    toast.success("page loaded")
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 4000);
@@ -41,7 +43,7 @@ const Home = () => {
       </div>
 
       <div className="about">
-        <div className="about-text" data-aos="fade-right">
+        <div className="about-text" data-aos="fade-up">
           <h2>About Ananda</h2>
           <p>
             Ananda Hotel is a perfect blend of modern luxury and warm
@@ -55,7 +57,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="about-image" data-aos="fade-left">
+        <div className="about-image" data-aos="fade-up">
           <img
             src="https://images.unsplash.com/photo-1566073771259-6a8506099945"
             alt="Hotel"
@@ -98,7 +100,7 @@ const Home = () => {
         <h2 data-aos="fade-up">Featured Rooms</h2>
 
         <div className="home-room-grid">
-          <div className="home-room-card" data-aos="zoom-in">
+          <div className="home-room-card" data-aos="zoom-in" data-aos-delay="100">
             <img
               src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
               alt="Room"
@@ -123,7 +125,7 @@ const Home = () => {
           <div
             className="home-room-card"
             data-aos="zoom-in"
-            data-aos-delay="200"
+            data-aos-delay="100"
           >
             <img
               src="https://images.unsplash.com/photo-1590490360182-c33d57733427"
