@@ -88,7 +88,7 @@ const Restaurant = () => {
         <h3>What Makes Our Dining Special</h3>
 
         <div className="extras-grid">
-          <div className="extra-card">
+          <div className="extra-card"  data-aos="zoom-in" data-aos-delay="100">
             <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="" />
             <h4>Signature Dishes</h4>
             <p>
@@ -97,7 +97,7 @@ const Restaurant = () => {
             </p>
           </div>
 
-          <div className="extra-card">
+          <div className="extra-card"  data-aos="zoom-in" data-aos-delay="100">
             <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1" alt="" />
             <h4>Elegant Ambience</h4>
             <p>
@@ -106,7 +106,7 @@ const Restaurant = () => {
             </p>
           </div>
 
-          <div className="extra-card">
+          <div className="extra-card"  data-aos="zoom-in" data-aos-delay="100">
             <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de" alt="" />
             <h4>Exceptional Service</h4>
             <p>

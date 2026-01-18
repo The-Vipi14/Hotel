@@ -38,7 +38,7 @@ const Banquet = () => {
         </div>
       </div>
 
-      <div className="banquet-content">
+      <div className="banquet-content" >
         <div className="banquet-info">
           <h3>Perfect Venue for Every Occasion</h3>
           <p>
