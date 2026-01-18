@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3>Aurora Grand Hotel</h3>
+          <h3>Ananda Hotel</h3>
           <p>
             Experience comfort, elegance, and premium hospitality. We ensure
             every stay is memorable and every moment special.
@@ -33,7 +33,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        © {new Date().getFullYear()} Aurora Grand Hotel. All rights reserved.
+        © {new Date().getFullYear()} Ananda Hotel. All rights reserved.
       </div>
     </footer>
   )

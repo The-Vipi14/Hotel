@@ -1,6 +1,36 @@
+import { useState } from "react"
 import "./contact.css"
+import api from "../../utils/api"
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  })
+
+  const submitContactMessage = async e => {
+    e.preventDefault()
+
+    try {
+      const res = await api.post("/contact", formData)
+
+      if (res.data.success) {
+        alert("Message sent successfully")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        })
+      }
+    } catch (err) {
+      alert("Failed to send message")
+      console.error(err)
+    }
+  }
+
   return (
     <section className="contact">
       <div className="contact-hero">
@@ -26,23 +56,46 @@ const Contact = () => {
         <div className="contact-form">
           <h3>Send a Message</h3>
 
-          <form>
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your Email" />
-            <input type="tel" placeholder="Phone Number" />
-            <textarea placeholder="Your Message"></textarea>
+          <form onSubmit={submitContactMessage}>
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={e =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+            />
+
+            <input
+              type="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={e =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={e =>
+                setFormData({ ...formData, phone: e.target.value })
+              }
+            />
+
+            <textarea
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={e =>
+                setFormData({ ...formData, message: e.target.value })
+              }
+            />
+
             <button type="submit">Send Message</button>
           </form>
         </div>
       </div>
-
-      {/* <div className="map">
-        <iframe
-          title="hotel-location"
-          src="https://www.google.com/maps?q=New%20Delhi&output=embed"
-          loading="lazy"
-        ></iframe>
-      </div> */}
     </section>
   )
 }

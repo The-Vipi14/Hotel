@@ -7,6 +7,7 @@ import Gallery from "./pages/gallery/Gallery";
 import Home from "./pages/Home/Home";
 import Restaurant from "./pages/Restaurant/Restaurant";
 import Rooms from "./pages/rooms/Rooms";
+import Reservation from "./pages/reservation/Reservation";
 
 function App() {
   // return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/banquet" element={<Banquet />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/reservation" element={<Reservation/>} />
         </Routes>
       </main>
 

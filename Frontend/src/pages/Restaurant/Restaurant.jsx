@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "./restaurant.css"
+import api from "../../utils/api"
 
 const images = [
   "https://images.unsplash.com/photo-1552566626-52f8b828add9",
@@ -12,12 +13,42 @@ const images = [
 const Restaurant = () => {
   const [index, setIndex] = useState(0)
 
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    date: "",
+    time: "",
+    guests: ""
+  })
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex(prev => (prev + 1) % images.length)
-    }, 2000)
+    }, 1800)
     return () => clearInterval(interval)
   }, [])
+
+  const submitTableBooking = async e => {
+    e.preventDefault()
+
+    try {
+      const res = await api.post("/tables/book-table", formData)
+
+      if (res.data.success) {
+        alert("Table reserved successfully")
+        setFormData({
+          name: "",
+          phone: "",
+          date: "",
+          time: "",
+          guests: ""
+        })
+      }
+    } catch (err) {
+      alert("Table booking failed")
+      console.error(err)
+    }
+  }
 
   return (
     <section className="restaurant">
@@ -31,8 +62,8 @@ const Restaurant = () => {
         ))}
 
         <div className="restaurant-overlay">
-          <h2>Fine Dining Experience</h2>
-          <p>Where taste meets elegance</p>
+          <h2 data-aos="fade-down">Fine Dining Experience</h2>
+          <p data-aos="fade-down">Where taste meets elegance</p>
         </div>
       </div>
 
@@ -63,20 +94,53 @@ const Restaurant = () => {
         <div className="table-booking">
           <h3>Reserve Your Table</h3>
 
-          <form>
-            <input type="text" placeholder="Your Name" />
-            <input type="tel" placeholder="Mobile Number" />
+          <form onSubmit={submitTableBooking}>
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={e =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+            />
+
+            <input
+              type="tel"
+              placeholder="Mobile Number"
+              value={formData.phone}
+              onChange={e =>
+                setFormData({ ...formData, phone: e.target.value })
+              }
+            />
 
             <div className="form-row">
-              <input type="date" />
-              <input type="time" />
+              <input
+                type="date"
+                value={formData.date}
+                onChange={e =>
+                  setFormData({ ...formData, date: e.target.value })
+                }
+              />
+              <input
+                type="time"
+                value={formData.time}
+                onChange={e =>
+                  setFormData({ ...formData, time: e.target.value })
+                }
+              />
             </div>
 
-            <select>
-              <option>2 Guests</option>
-              <option>4 Guests</option>
-              <option>6 Guests</option>
-              <option>8 Guests</option>
+            <select
+              value={formData.guests}
+              onChange={e =>
+                setFormData({ ...formData, guests: e.target.value })
+              }
+            >
+              <option value="">Select Guests</option>
+              <option>2</option>
+              <option>4</option>
+              <option>6</option>
+              <option>8</option>
             </select>
 
             <button type="submit">Reserve Table</button>
@@ -88,8 +152,11 @@ const Restaurant = () => {
         <h3>What Makes Our Dining Special</h3>
 
         <div className="extras-grid">
-          <div className="extra-card"  data-aos="zoom-in" data-aos-delay="100">
-            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="" />
+          <div className="extra-card" data-aos="zoom-in" data-aos-delay="100">
+            <img
+              src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+              alt=""
+            />
             <h4>Signature Dishes</h4>
             <p>
               Chef-recommended specialties inspired by global cuisines and
@@ -97,8 +164,11 @@ const Restaurant = () => {
             </p>
           </div>
 
-          <div className="extra-card"  data-aos="zoom-in" data-aos-delay="100">
-            <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1" alt="" />
+          <div className="extra-card" data-aos="zoom-in" data-aos-delay="100">
+            <img
+              src="https://images.unsplash.com/photo-1528605248644-14dd04022da1"
+              alt=""
+            />
             <h4>Elegant Ambience</h4>
             <p>
               Soft lighting and refined interiors designed for calm, luxurious
@@ -106,8 +176,11 @@ const Restaurant = () => {
             </p>
           </div>
 
-          <div className="extra-card"  data-aos="zoom-in" data-aos-delay="100">
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de" alt="" />
+          <div className="extra-card" data-aos="zoom-in" data-aos-delay="100">
+            <img
+              src="https://images.unsplash.com/photo-1559339352-11d035aa65de"
+              alt=""
+            />
             <h4>Exceptional Service</h4>
             <p>
               Trained staff delivering attentive service with a warm and

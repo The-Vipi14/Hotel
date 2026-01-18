@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">Aurora Grand</Link>
+        <Link to="/">Ananda</Link>
       </div>
 
       <ul className={`nav-links ${open ? "active" : ""}`}>
@@ -42,14 +42,15 @@ const Navbar = () => {
             Contact
           </Link>
         </li>
-        <Link to="/rooms">
+        <Link to="/reservation">
           <button className="mobile-book-btn">Book Now</button>
         </Link>
       </ul>
-
-      <Link to="/rooms">
-        <button className="book-btn">Book Now</button>
-      </Link>
+      <button className="book-btn">
+        <Link style={{ textDecoration: "none", color:"black" }} to="/reservation">
+          Book Now
+        </Link>
+      </button>
 
       <div className="hamburger" onClick={() => setOpen(!open)}>
         <span></span>

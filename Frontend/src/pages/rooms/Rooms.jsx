@@ -116,13 +116,19 @@
 //     },
 //   ];
 
+// const submitRoomBooking = async () =>{
+
+// }
+
 //   const [visibleCount, setVisibleCount] = useState(3);
 //   const [activeRoom, setActiveRoom] = useState(null);
 
 //   return (
 //     <section className="rooms">
-//       <h2>Our Rooms</h2>
-//       <p className="subtitle">Comfort designed for every guest</p>
+//       <h2 data-aos="fade-up">Our Rooms</h2>
+//       <p className="subtitle" data-aos="fade-up">
+//         Comfort designed for every guest
+//       </p>
 
 //       <div className="room-grid">
 //         {allRooms.slice(0, visibleCount).map((room) => (
@@ -148,12 +154,43 @@
 //       </div>
 
 //       {visibleCount < allRooms.length && (
-//         <div className="view-more">
+//         <div className="view-more" data-aos="fade-up">
 //           <button onClick={() => setVisibleCount(visibleCount + 6)}>
 //             View More Rooms
 //           </button>
 //         </div>
 //       )}
+
+//       <div className="booking-section" data-aos="fade-up">
+//         <h3>Reserve Your Stay</h3>
+
+//         <form className="booking-form" onSubmit={submitRoomBooking}>
+//           <input type="text" placeholder="Your Name" />
+//           <input type="tel" placeholder="Mobile Number" />
+
+//           <div className="form-row">
+//             <input type="date" />
+//             <input type="date" />
+//           </div>
+
+//           <select>
+//             <option>Select Room Type</option>
+//             <option>Deluxe Room</option>
+//             <option>Executive Room</option>
+//             <option>Suite Room</option>
+//           </select>
+
+//           <select>
+//             <option>Number of Guests</option>
+//             <option>1 Guest</option>
+//             <option>2 Guests</option>
+//             <option>3 Guests</option>
+//             <option>4 Guests</option>
+//           </select>
+
+//           <button type="submit">Check Availability</button>
+//         </form>
+//       </div>
 
 //       {activeRoom && (
 //         <div className="modal-overlay" onClick={() => setActiveRoom(null)}>
@@ -171,7 +208,8 @@
 //                 <li key={index}>{item}</li>
 //               ))}
 //             </ul>
-//             <button className="book-btn">Book Now</button>
+
+//             <button className="book-btn modal-book">Book Now</button>
 //           </div>
 //         </div>
 //       )}
@@ -186,20 +224,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-import { useState } from "react"
-import "./rooms.css"
+import { useState } from "react";
+import "./rooms.css";
+import api from "../../utils/api";
 
 const Rooms = () => {
   const allRooms = [
@@ -213,8 +240,8 @@ const Rooms = () => {
         "Free WiFi",
         "Air Conditioning",
         "LED TV",
-        "24x7 Room Service"
-      ]
+        "24x7 Room Service",
+      ],
     },
     {
       id: 2,
@@ -226,8 +253,8 @@ const Rooms = () => {
         "Breakfast Included",
         "Work Desk",
         "Mini Fridge",
-        "Premium Bedding"
-      ]
+        "Premium Bedding",
+      ],
     },
     {
       id: 3,
@@ -239,8 +266,8 @@ const Rooms = () => {
         "Bathtub",
         "Luxury Interior",
         "Sofa Set",
-        "Private Balcony"
-      ]
+        "Private Balcony",
+      ],
     },
     {
       id: 4,
@@ -251,8 +278,8 @@ const Rooms = () => {
         "Queen Bed",
         "Smart TV",
         "High Speed WiFi",
-        "Tea/Coffee Maker"
-      ]
+        "Tea/Coffee Maker",
+      ],
     },
     {
       id: 5,
@@ -263,8 +290,8 @@ const Rooms = () => {
         "Luxury Bathroom",
         "Pool View",
         "Extra Spacious",
-        "Premium Amenities"
-      ]
+        "Premium Amenities",
+      ],
     },
     {
       id: 6,
@@ -275,8 +302,8 @@ const Rooms = () => {
         "Two Double Beds",
         "Kids Friendly",
         "Large Space",
-        "Dining Area"
-      ]
+        "Dining Area",
+      ],
     },
     {
       id: 7,
@@ -287,8 +314,8 @@ const Rooms = () => {
         "Meeting Space",
         "High Speed Internet",
         "Executive Desk",
-        "Premium Service"
-      ]
+        "Premium Service",
+      ],
     },
     {
       id: 8,
@@ -299,8 +326,8 @@ const Rooms = () => {
         "Jacuzzi",
         "Panoramic View",
         "Private Lounge",
-        "Butler Service"
-      ]
+        "Butler Service",
+      ],
     },
     {
       id: 9,
@@ -311,13 +338,45 @@ const Rooms = () => {
         "Private Dining",
         "Luxury Living Room",
         "Premium Security",
-        "Exclusive Services"
-      ]
-    }
-  ]
+        "Exclusive Services",
+      ],
+    },
+  ];
 
-  const [visibleCount, setVisibleCount] = useState(3)
-  const [activeRoom, setActiveRoom] = useState(null)
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [activeRoom, setActiveRoom] = useState(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    checkIn: "",
+    checkOut: "",
+    roomType: "",
+    guests: "",
+  });
+
+  const submitRoomBooking = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await api.post("/rooms/book-room", formData);
+
+      if (res.data.success) {
+        alert("Room booking submitted successfully");
+        setFormData({
+          name: "",
+          phone: "",
+          checkIn: "",
+          checkOut: "",
+          roomType: "",
+          guests: "",
+        });
+      }
+    } catch (err) {
+      alert("Booking failed");
+      console.error(err);
+    }
+  };
 
   return (
     <section className="rooms">
@@ -327,7 +386,7 @@ const Rooms = () => {
       </p>
 
       <div className="room-grid">
-        {allRooms.slice(0, visibleCount).map(room => (
+        {allRooms.slice(0, visibleCount).map((room) => (
           <div className="room-card" data-aos="fade-up" key={room.id}>
             <img src={room.img} alt={room.name} />
 
@@ -357,9 +416,75 @@ const Rooms = () => {
         </div>
       )}
 
+      <div className="booking-section" data-aos="fade-up">
+        <h3>Reserve Your Stay</h3>
+
+        <form className="booking-form" onSubmit={submitRoomBooking}>
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          />
+
+          <input
+            type="tel"
+            placeholder="Mobile Number"
+            value={formData.phone}
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
+            }
+          />
+
+          <div className="form-row">
+            <input
+              type="date"
+              value={formData.checkIn}
+              onChange={(e) =>
+                setFormData({ ...formData, checkIn: e.target.value })
+              }
+            />
+            <input
+              type="date"
+              value={formData.checkOut}
+              onChange={(e) =>
+                setFormData({ ...formData, checkOut: e.target.value })
+              }
+            />
+          </div>
+
+          <select
+            value={formData.roomType}
+            onChange={(e) =>
+              setFormData({ ...formData, roomType: e.target.value })
+            }
+          >
+            <option value="">Select Room Type</option>
+            <option>Deluxe Room</option>
+            <option>Executive Room</option>
+            <option>Suite Room</option>
+          </select>
+
+          <select
+            value={formData.guests}
+            onChange={(e) =>
+              setFormData({ ...formData, guests: e.target.value })
+            }
+          >
+            <option value="">Number of Guests</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+
+          <button type="submit">Check Availability</button>
+        </form>
+      </div>
+
       {activeRoom && (
         <div className="modal-overlay" onClick={() => setActiveRoom(null)}>
-          <div className="modal" onClick={e => e.stopPropagation()}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={() => setActiveRoom(null)}>
               ×
             </button>
@@ -379,7 +504,7 @@ const Rooms = () => {
         </div>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Rooms
+export default Rooms;
