@@ -15,7 +15,6 @@ const Home = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    toast.success("page loaded")
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 4000);
