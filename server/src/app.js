@@ -3,6 +3,7 @@ const cors = require("cors")
 
 const roomBookingRoutes = require("./routes/roomBooking.routes")
 const tableBookingRoutes = require("./routes/tableBooking.routes")
+const eventInquiryRoutes = require("./routes/eventInquiry.routes")
 
 const app = express()
 
@@ -11,9 +12,10 @@ app.use(express.json())
 
 app.use("/api/rooms", roomBookingRoutes)
 app.use("/api/tables", tableBookingRoutes)
+app.use("/api/events", eventInquiryRoutes)
 
 app.get("/", (req, res) => {
   res.send("Hotel Backend Running")
 })
 
-module.exports = app 
+module.exports = app
