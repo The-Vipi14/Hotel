@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./rooms.css";
 import api from "../../utils/api";
 import { toast } from "react-toastify";
-
+import { useRef } from "react";
 
 const Rooms = () => {
+  const bookingSection = useRef();
+
   const allRooms = [
     {
       id: 1,
@@ -177,7 +179,16 @@ const Rooms = () => {
                 >
                   View Facilities
                 </button>
-                <button className="book-btn">Book Now</button>
+                <button
+                  className="book-btn"
+                  onClick={() => {
+                    bookingSection.current.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Book Now
+                </button>
               </div>
             </div>
           </div>
@@ -192,7 +203,7 @@ const Rooms = () => {
         </div>
       )}
 
-      <div className="booking-section" data-aos="fade-up">
+      <div ref={bookingSection} className="booking-section" data-aos="fade-up">
         <h3>Reserve Your Stay</h3>
 
         <form className="booking-form" onSubmit={submitRoomBooking}>
