@@ -1,22 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AdminRoute from "./components/AdminRoute";
-import AdminDashboard from "./pages/dashboard/AdminDashboard";
-import AdminLogin from "./pages/login/AdminLogin";
+// import AdminRoute from "./components/AdminRoute";
+// import AdminDashboard from "./pages/dashboard/AdminDashboard";
+// import AdminLogin from "./pages/login/AdminLogin";
+import AppRoutes from "./AppRoutes";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<AdminLogin />} />
-        <Route
-          path="/"
-          element={
-            <AdminRoute>
-              <AdminDashboard />
-            </AdminRoute>
-          }
-        />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
