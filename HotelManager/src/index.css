@@ -1,5 +1,33 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --font-primary: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --bg-primary: #f4f6f8;
+  --bg-secondary: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --accent-color: #2563eb;
+  --error-color: #dc2626;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #111827;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --border-color: #1f2937;
+  --accent-color: #3b82f6;
+  --error-color: #f87171;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }

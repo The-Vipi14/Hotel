@@ -235,7 +235,7 @@ tr:hover {
   font-size: 1.15rem;
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
   .admin-sidebar { width: 220px; }
   .admin-main { margin-left: 220px; padding: 1.8rem 2rem; }

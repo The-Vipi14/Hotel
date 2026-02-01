@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+import './login.css'
+
 const AdminLogin = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -25,7 +27,7 @@ const AdminLogin = () => {
         return
       }
 
-      navigate("/dashboard")
+      navigate("/")
     } catch {
       setError("Server error")
     }
