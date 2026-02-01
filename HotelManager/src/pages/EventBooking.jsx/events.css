@@ -1,0 +1,52 @@
+.event-page {
+  color: var(--text-primary);
+}
+
+.event-title {
+  margin-bottom: 20px;
+}
+
+.event-table-wrapper {
+  background: var(--bg-secondary);
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-table th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.event-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.event-message {
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.event-status.pending {
+  background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+  color: var(--accent-color);
+}
