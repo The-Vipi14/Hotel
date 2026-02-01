@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import './tables.css'
+import "./tables.css";
+
 const TableBookings = () => {
-  const [tables, setTables] = useState([]);
+  const [allTables, setAllTables] = useState([]);
+  const [todayTables, setTodayTables] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -11,7 +13,9 @@ const TableBookings = () => {
           credentials: "include",
         });
         const data = await res.json();
-        setTables(data.TableBookings || []);
+
+        setAllTables(data.TableBookings || []);
+        setTodayTables(data.todayTableBookings || []);
       } catch (error) {
         console.error("Failed to fetch table bookings");
       } finally {
@@ -24,47 +28,47 @@ const TableBookings = () => {
 
   if (loading) return <h3>Loading table bookings...</h3>;
 
+  const renderTable = (tables) => (
+    <div className="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Guests</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {tables.length === 0 ? (
+            <tr>
+              <td colSpan="5">No reservations found</td>
+            </tr>
+          ) : (
+            tables.map((table) => (
+              <tr key={table._id}>
+                <td>{table.name}</td>
+                <td>{table.phone}</td>
+                <td>{new Date(table.date).toLocaleDateString()}</td>
+                <td>{table.time}</td>
+                <td>{table.guests}</td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+
   return (
     <div className="tables-page">
-      <h2>Table Reservations</h2>
+      <h2>Today’s Table Reservations</h2>
+      {renderTable(todayTables)}
 
-      <div className="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Guests</th>
-              {/* <th>Status</th> */}
-            </tr>
-          </thead>
-
-          <tbody>
-            {tables.length === 0 ? (
-              <tr>
-                <td colSpan="6">No reservations found</td>
-              </tr>
-            ) : (
-              tables.map(table => (
-                <tr key={table._id}>
-                  <td>{table.name}</td>
-                  <td>{table.phone}</td>
-                  <td>{new Date(table.date).toLocaleDateString()}</td>
-                  <td>{table.time}</td>
-                  <td>{table.guests}</td>
-                  {/* <td>
-                    <span className={`status ${table.status}`}>
-                      {table.status}
-                    </span>
-                  </td> */}
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
+      <h2 style={{ marginTop: "40px" }}>All Table Reservations</h2>
+      {renderTable(allTables)}
     </div>
   );
 };

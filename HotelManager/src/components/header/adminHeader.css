@@ -1,0 +1,49 @@
+.admin-header-right {
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hotel-name {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #8b6b2e, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 42px;
+}
+
+.panel-name {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-role {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.logout-btn {
+  padding: 8px 14px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #1e40af;
+}

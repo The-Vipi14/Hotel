@@ -1,17 +1,20 @@
-import {useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 
 const RoomBookings = () => {
-  const [rooms, setRooms] = useState([]);
+  const [allRooms, setAllRooms] = useState([]);
+  const [todayRooms, setTodayRooms] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchRoomBookings = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/admin/rooms",{
-          credentials:"include"
+        const res = await fetch("http://localhost:5000/api/admin/rooms", {
+          credentials: "include",
         });
         const data = await res.json();
-        setRooms(data.roomBookingDetails || []);
+
+        setAllRooms(data.roomBookingDetails || []);
+        setTodayRooms(data.todayRoomBookings || []);
       } catch (error) {
         console.error("Failed to fetch room bookings");
       } finally {
@@ -22,53 +25,50 @@ const RoomBookings = () => {
     fetchRoomBookings();
   }, []);
 
-  if (loading) {
-    return <h3>Loading room bookings...</h3>;
-  }
+  if (loading) return <h3>Loading room bookings...</h3>;
+
+  const renderTable = (rooms) => (
+    <div className="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Room Type</th>
+            <th>Guests</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rooms.length === 0 ? (
+            <tr>
+              <td colSpan="6">No bookings found</td>
+            </tr>
+          ) : (
+            rooms.map((room) => (
+              <tr key={room._id}>
+                <td>{room.name}</td>
+                <td>{room.phone}</td>
+                <td>{room.roomType}</td>
+                <td>{room.guests}</td>
+                <td>{new Date(room.checkIn).toLocaleDateString()}</td>
+                <td>{new Date(room.checkOut).toLocaleDateString()}</td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
 
   return (
     <div className="rooms-page">
-      <h2>Room Bookings</h2>
+      <h2>Today’s Room Bookings</h2>
+      {renderTable(todayRooms)}
 
-      <div className="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Room Type</th>
-              <th>Guests</th>
-              <th>Check In</th>
-              <th>Check Out</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {rooms.length === 0 ? (
-              <tr>
-                <td colSpan="7">No bookings found</td>
-              </tr>
-            ) : (
-              rooms.map((room) => (
-                <tr key={room._id}>
-                  <td>{room.name}</td>
-                  <td>{room.phone}</td>
-                  <td>{room.roomType}</td>
-                  <td>{room.guests}</td>
-                  <td>{new Date(room.checkIn).toLocaleDateString()}</td>
-                  <td>{new Date(room.checkOut).toLocaleDateString()}</td>
-                  <td>
-                    <span className={`status ${room.status}`}>
-                      {room.status}
-                    </span>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
+      <h2 style={{ marginTop: "40px" }}>All Room Bookings</h2>
+      {renderTable(allRooms)}
     </div>
   );
 };

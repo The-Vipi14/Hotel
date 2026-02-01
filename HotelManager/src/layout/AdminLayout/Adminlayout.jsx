@@ -1,16 +1,23 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./layout.css"
+import AdminHeader from "../../components/header/AdminHeader";
+import "./layout.css";
+
 const Adminlayout = () => {
   return (
-    <>
-      <div className="admin-layout">
-        <Sidebar />
-        <main className="admin-main">
+    <div className="admin-layout">
+      <Sidebar />
+
+      <div className="admin-main">
+        {/* STATIC HEADER */}
+        <AdminHeader />
+
+        {/* SCROLLABLE CONTENT */}
+        <div className="admin-content">
           <Outlet />
-        </main>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

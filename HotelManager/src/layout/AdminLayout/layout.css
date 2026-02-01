@@ -1,12 +1,30 @@
 .admin-layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #f4f6f8;
 }
 
+/* RIGHT SIDE */
 .admin-main {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  padding: 24px;
-  overflow-y: auto;
   background-color: #ffffff;
+}
+
+/* HEADER stays fixed */
+.admin-header {
+  height: 64px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+/* ONLY this scrolls */
+.admin-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  background-color: #f9fafb;
 }
