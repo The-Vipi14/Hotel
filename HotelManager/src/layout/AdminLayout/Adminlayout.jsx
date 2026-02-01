@@ -9,10 +9,10 @@ const Adminlayout = () => {
       <Sidebar />
 
       <div className="admin-main">
-        {/* STATIC HEADER */}
+       
         <AdminHeader />
 
-        {/* SCROLLABLE CONTENT */}
+       
         <div className="admin-content">
           <Outlet />
         </div>

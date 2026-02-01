@@ -1,10 +1,12 @@
 const express = require("express")
-const { adminLogin, adminRegister,adminLogout } = require("../controllers/admin.controller")
+const { adminLogin, adminRegister, adminLogout, adminProfile } = require("../controllers/admin.controller")
 
-const router = express.Router()
+const adminAuth = require("../middlewares/auth.middleware");
+const router = express.Router();
 
-router.post("/login", adminLogin)
-router.post("/register", adminRegister)
-router.post("/logout", adminLogout)
+router.post("/login", adminLogin);
+router.post("/register", adminRegister);
+router.post("/logout", adminAuth, adminLogout);
+router.get("/profile", adminAuth, adminProfile);
 
-module.exports = router
+module.exports = router;

@@ -20,6 +20,10 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser())
 
+// app.use("/", (req,res)=>{
+//   res.send("Hotel server is running.....🎊🙋‍♂️")
+// })
+
 app.use("/api/rooms", roomBookingRoutes)
 app.use("/api/tables", tableBookingRoutes)
 app.use("/api/events", eventInquiryRoutes)

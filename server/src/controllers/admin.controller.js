@@ -3,19 +3,21 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
 const adminRegister = async (req, res) => {
+
   try {
     const { name, email, password } = req.body
 
     if (!name || !email || !password) {
       return res.status(400).json({
         message: "please fill all the fields."
-      })
+      });
     }
+
     const isAlreadyExists = await Admin.findOne({ email })
     if (isAlreadyExists) {
       return res.status(409).json({
         message: "amdin already exists."
-      })
+      });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -24,7 +26,8 @@ const adminRegister = async (req, res) => {
       name,
       password: hashedPassword,
       email
-    })
+    });
+
     await newAdmin.save();
 
     const token = jwt.sign(
@@ -42,9 +45,10 @@ const adminRegister = async (req, res) => {
     });
 
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message })
+    res.status(500).json({ success: false, error: error.message });
   }
 }
+
 const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body
@@ -86,9 +90,23 @@ const adminLogin = async (req, res) => {
   }
 }
 
+const adminProfile = async (req, res) => {
+  try {
+    const admin = req.admin;
+    const adminDetails = await Admin.findOne({ _id: admin.id }).select("-password")
+    res.json({
+      adminDetails
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error"
+    })
+  }
+}
+
 const adminLogout = (req, res) => {
-  res.clearCookie("adminToken")
+  res.clearCookie("token")
   res.json({ success: true, message: "Logged out" })
 }
 
-module.exports = { adminRegister,adminLogin, adminLogout }
+module.exports = { adminRegister, adminLogin, adminLogout, adminProfile }
