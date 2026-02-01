@@ -8,6 +8,6 @@ const adminAuth = require("../middlewares/auth.middleware")
 const router = express.Router()
 
 router.post("/book-room", createRoomBooking)
-router.get("/bookings", adminAuth, getAllRoomBookings)
+router.get("/bookings",  getAllRoomBookings)
 
 module.exports = router

@@ -11,7 +11,7 @@ const router = express.Router()
 
 router.post("/", createContactMessage)
 
-router.get("/admin", adminAuth, getAllContactMessages)
-router.patch("/admin/:id/read", adminAuth, markMessageAsRead)
+router.get("/admin",  getAllContactMessages)
+router.patch("/admin/:id/read", markMessageAsRead)
 
 module.exports = router

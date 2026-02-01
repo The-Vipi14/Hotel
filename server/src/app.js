@@ -23,9 +23,9 @@ app.use(cookieParser())
 app.use("/api/rooms", roomBookingRoutes)
 app.use("/api/tables", tableBookingRoutes)
 app.use("/api/events", eventInquiryRoutes)
-app.use("/api/admin", adminRoutes)
-app.use("/api/admin", adminDashboardRoutes)
 app.use("/api/contact", contactRoutes)
 
- 
+app.use("/api/admin", adminRoutes)
+app.use("/api/admin", adminDashboardRoutes) 
+
 module.exports = app
