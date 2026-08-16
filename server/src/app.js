@@ -8,7 +8,7 @@ const eventInquiryRoutes = require("./routes/eventInquiry.routes")
 const adminRoutes = require("./routes/admin.routes")
 const adminDashboardRoutes = require("./routes/adminDashboard.routes")
 const contactRoutes = require("./routes/contact.routes")
-
+const emailRoutes = require("./routes/email.route");
 const app = express()
 
 app.use(cors({
@@ -23,12 +23,12 @@ app.use(cookieParser())
 // app.use("/", (req,res)=>{
 //   res.send("Hotel server is running.....🎊🙋‍♂️")
 // })
-
+  
 app.use("/api/rooms", roomBookingRoutes)
 app.use("/api/tables", tableBookingRoutes)
 app.use("/api/events", eventInquiryRoutes)
 app.use("/api/contact", contactRoutes)
-
+app.use("/api/email",emailRoutes)
 app.use("/api/admin", adminRoutes)
 app.use("/api/admin", adminDashboardRoutes) 
 

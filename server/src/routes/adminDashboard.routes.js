@@ -11,10 +11,17 @@ const adminAuth = require("../middlewares/auth.middleware");
 
 const router = express.Router()
 
-router.get("/dashboard",adminAuth, getDashboardStats);
-router.get("/rooms",adminAuth, getRoomBookings);
-router.get("/events",adminAuth, getEventBookings);
-router.get("/tables",adminAuth, getTableBookings);
+// router.get("/dashboard",adminAuth, getDashboardStats);
+// router.get("/rooms",adminAuth, getRoomBookings);
+// router.get("/events",adminAuth, getEventBookings);
+// router.get("/tables",adminAuth, getTableBookings);
+// router.get("/contact",adminAuth, getContactMessages);
+
+
+router.get("/dashboard", getDashboardStats);
+router.get("/rooms", getRoomBookings);
+router.get("/events", getEventBookings);
+router.get("/tables", getTableBookings);
 router.get("/contact",adminAuth, getContactMessages);
 
 module.exports = router

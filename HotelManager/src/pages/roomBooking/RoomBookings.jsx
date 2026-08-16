@@ -16,7 +16,7 @@ const RoomBookings = () => {
         setAllRooms(data.roomBookingDetails || []);
         setTodayRooms(data.todayRoomBookings || []);
       } catch (error) {
-        console.error("Failed to fetch room bookings");
+        console.error("Failed to fetch room bookings", error);
       } finally {
         setLoading(false);
       }
@@ -38,6 +38,8 @@ const RoomBookings = () => {
             <th>Guests</th>
             <th>Check In</th>
             <th>Check Out</th>
+            <th>Approved</th>
+            <th>Cancel</th>
           </tr>
         </thead>
         <tbody>
