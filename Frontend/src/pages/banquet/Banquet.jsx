@@ -26,7 +26,7 @@ const Banquet = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex(prev => (prev + 1) % images.length)
-    }, 1800)
+    }, 1800);
     return () => clearInterval(interval)
   }, [])
 
