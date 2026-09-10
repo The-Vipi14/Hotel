@@ -7,119 +7,128 @@ import { useRef } from "react";
 const Rooms = () => {
   const bookingSection = useRef();
 
-  const allRooms = [
-    {
-      id: 1,
-      name: "Deluxe Room",
-      price: "₹3,500 / Night",
-      img: "https://images.unsplash.com/photo-1611892440504-42a792e24d32",
-      facilities: [
-        "King Size Bed",
-        "Free WiFi",
-        "Air Conditioning",
-        "LED TV",
-        "24x7 Room Service",
-      ],
-    },
-    {
-      id: 2,
-      name: "Executive Room",
-      price: "₹4,500 / Night",
-      img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304",
-      facilities: [
-        "City View",
-        "Breakfast Included",
-        "Work Desk",
-        "Mini Fridge",
-        "Premium Bedding",
-      ],
-    },
-    {
-      id: 3,
-      name: "Suite Room",
-      price: "₹6,500 / Night",
-      img: "https://images.unsplash.com/photo-1590490360182-c33d57733427",
-      facilities: [
-        "Separate Living Area",
-        "Bathtub",
-        "Luxury Interior",
-        "Sofa Set",
-        "Private Balcony",
-      ],
-    },
-    {
-      id: 4,
-      name: "Superior Room",
-      price: "₹3,900 / Night",
-      img: "https://www.oppeinhome.com/upload/images/ueditor/20230830/guide-to-design-luxury-bedroom-2.webp",
-      facilities: [
-        "Queen Bed",
-        "Smart TV",
-        "High Speed WiFi",
-        "Tea/Coffee Maker",
-      ],
-    },
-    {
-      id: 5,
-      name: "Premium Room",
-      price: "₹5,200 / Night",
-      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
-      facilities: [
-        "Luxury Bathroom",
-        "Pool View",
-        "Extra Spacious",
-        "Premium Amenities",
-      ],
-    },
-    {
-      id: 6,
-      name: "Family Room",
-      price: "₹5,800 / Night",
-      img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
-      facilities: [
-        "Two Double Beds",
-        "Kids Friendly",
-        "Large Space",
-        "Dining Area",
-      ],
-    },
-    {
-      id: 7,
-      name: "Business Suite",
-      price: "₹7,200 / Night",
-      img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
-      facilities: [
-        "Meeting Space",
-        "High Speed Internet",
-        "Executive Desk",
-        "Premium Service",
-      ],
-    },
-    {
-      id: 8,
-      name: "Luxury Suite",
-      price: "₹8,500 / Night",
-      img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa",
-      facilities: [
-        "Jacuzzi",
-        "Panoramic View",
-        "Private Lounge",
-        "Butler Service",
-      ],
-    },
-    {
-      id: 9,
-      name: "Presidential Suite",
-      price: "₹12,000 / Night",
-      img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
-      facilities: [
-        "Private Dining",
-        "Luxury Living Room",
-        "Premium Security",
-        "Exclusive Services",
-      ],
-    },
-  ];
+const allRooms = [
+  {
+    id: 1,
+    name: "Deluxe Room",
+    roomType: "Deluxe Room",
+    price: "₹3,500 / Night",
+    img: "https://images.unsplash.com/photo-1611892440504-42a792e24d32",
+    facilities: [
+      "King Size Bed",
+      "Free WiFi",
+      "Air Conditioning",
+      "LED TV",
+      "24x7 Room Service",
+    ],
+  },
+  {
+    id: 2,
+    name: "Executive Room",
+    roomType: "Executive Room",
+    price: "₹4,500 / Night",
+    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304",
+    facilities: [
+      "City View",
+      "Breakfast Included",
+      "Work Desk",
+      "Mini Fridge",
+      "Premium Bedding",
+    ],
+  },
+  {
+    id: 3,
+    name: "Suite Room",
+    roomType: "Suite Room",
+    price: "₹6,500 / Night",
+    img: "https://images.unsplash.com/photo-1590490360182-c33d57733427",
+    facilities: [
+      "Separate Living Area",
+      "Bathtub",
+      "Luxury Interior",
+      "Sofa Set",
+      "Private Balcony",
+    ],
+  },
+  {
+    id: 4,
+    name: "Superior Room",
+    roomType: "Deluxe Room",
+    price: "₹3,900 / Night",
+    img: "https://www.oppeinhome.com/upload/images/ueditor/20230830/guide-to-design-luxury-bedroom-2.webp",
+    facilities: [
+      "Queen Bed",
+      "Smart TV",
+      "High Speed WiFi",
+      "Tea/Coffee Maker",
+    ],
+  },
+  {
+    id: 5,
+    name: "Premium Room",
+    roomType: "Executive Room",
+    price: "₹5,200 / Night",
+    img: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
+    facilities: [
+      "Luxury Bathroom",
+      "Pool View",
+      "Extra Spacious",
+      "Premium Amenities",
+    ],
+  },
+  {
+    id: 6,
+    name: "Family Room",
+    roomType: "Deluxe Room",
+    price: "₹5,800 / Night",
+    img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    facilities: [
+      "Two Double Beds",
+      "Kids Friendly",
+      "Large Space",
+      "Dining Area",
+    ],
+  },
+  {
+    id: 7,
+    name: "Business Suite",
+    roomType: "Executive Room",
+    price: "₹7,200 / Night",
+    img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+    facilities: [
+      "Meeting Space",
+      "High Speed Internet",
+      "Executive Desk",
+      "Premium Service",
+    ],
+  },
+  {
+    id: 8,
+    name: "Luxury Suite",
+    roomType: "Suite Room",
+    price: "₹8,500 / Night",
+    img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa",
+    facilities: [
+      "Jacuzzi",
+      "Panoramic View",
+      "Private Lounge",
+      "Butler Service",
+    ],
+  },
+  {
+    id: 9,
+    name: "Presidential Suite",
+    roomType: "Suite Room",
+    price: "₹12,000 / Night",
+    img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
+    facilities: [
+      "Private Dining",
+      "Luxury Living Room",
+      "Premium Security",
+      "Exclusive Services",
+    ],
+  },
+];
 
   const [visibleCount, setVisibleCount] = useState(3);
   const [activeRoom, setActiveRoom] = useState(null);
@@ -286,7 +295,19 @@ const Rooms = () => {
               ))}
             </ul>
 
-            <button className="book-btn modal-book">Book Now</button>
+            <button
+              className="book-btn modal-book"
+              onClick={() => {
+                bookingSection.current.scrollIntoView({
+                  behavior: "smooth",
+                });
+
+                setFormData({ ...formData, roomType: activeRoom.type });
+                // setActiveRoom(null);
+              }}
+            >
+              Book Now
+            </button>
           </div>
         </div>
       )}
