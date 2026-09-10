@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./rooms.css";
 import api from "../../utils/api";
 import { toast } from "react-toastify";
 import { useRef } from "react";
-
+import room1 from "../../assets/videos/room1.mp4";
+import room2 from "../../assets/videos/room2.mp4";
+import room3 from "../../assets/videos/room3.mp4";
 const Rooms = () => {
   const bookingSection = useRef();
 
@@ -132,6 +134,15 @@ const allRooms = [
 
   const [visibleCount, setVisibleCount] = useState(3);
   const [activeRoom, setActiveRoom] = useState(null);
+  const [index, setIndex] = useState(0);
+  const roomVideos = [room1, room2, room3];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % roomVideos.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -167,6 +178,13 @@ const allRooms = [
 
   return (
     <section className="rooms">
+    
+          <video className="rooms-bg-video" autoPlay muted loop playsInline>
+            <source src={roomVideos[index]} type="video/mp4" />
+          </video>
+
+      <div className="rooms-overlay"></div>
+
       <h2 data-aos="fade-up">Our Rooms</h2>
       <p className="subtitle" data-aos="fade-up">
         Comfort designed for every guest
@@ -189,7 +207,7 @@ const allRooms = [
                   View Facilities
                 </button>
                 <button
-                  className="book-btn"
+                  className="room-book-btn"
                   onClick={() => {
                     bookingSection.current.scrollIntoView({
                       behavior: "smooth",
@@ -295,19 +313,7 @@ const allRooms = [
               ))}
             </ul>
 
-            <button
-              className="book-btn modal-book"
-              onClick={() => {
-                bookingSection.current.scrollIntoView({
-                  behavior: "smooth",
-                });
-
-                setFormData({ ...formData, roomType: activeRoom.type });
-                // setActiveRoom(null);
-              }}
-            >
-              Book Now
-            </button>
+            <button className="room-book-btn modal-book">Book Now</button>
           </div>
         </div>
       )}
