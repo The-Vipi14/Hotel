@@ -180,7 +180,7 @@ const allRooms = [
     <section className="rooms">
     
           <video className="rooms-bg-video" autoPlay muted loop playsInline>
-            <source src={roomVideos[index]} type="video/mp4" />
+            <source src="Video by TR Studio from Pexels: https://www.pexels.com/video/elegant-modern-living-room-interior-design-29466012/" type="video/mp4" />
           </video>
 
       <div className="rooms-overlay"></div>
