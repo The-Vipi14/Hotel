@@ -1,5 +1,12 @@
-.reservation-section {
+/* .reservation-section {
   padding: 6rem 2rem 8rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+  min-height: 100vh;
+} */
+
+.reservation-section {
+  margin-top: -104px;
+  padding: calc(6rem + 104px) 2rem 8rem;
   background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
   min-height: 100vh;
 }

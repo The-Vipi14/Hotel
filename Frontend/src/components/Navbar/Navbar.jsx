@@ -1,56 +1,92 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  const navClass = ({ isActive }) =>
+    isActive ? "nav-link active" : "nav-link";
+
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">Ananda</Link>
+        <NavLink to="/" onClick={() => setOpen(false)}>
+          Ananda
+        </NavLink>
       </div>
 
       <ul className={`nav-links ${open ? "active" : ""}`}>
         <li>
-          <Link to="/" onClick={() => setOpen(false)}>
+          <NavLink to="/" className={navClass} onClick={() => setOpen(false)}>
             Home
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/rooms" onClick={() => setOpen(false)}>
+          <NavLink
+            to="/rooms"
+            className={navClass}
+            onClick={() => setOpen(false)}
+          >
             Rooms
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/restaurant" onClick={() => setOpen(false)}>
+          <NavLink
+            to="/restaurant"
+            className={navClass}
+            onClick={() => setOpen(false)}
+          >
             Restaurant
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/banquet" onClick={() => setOpen(false)}>
+          <NavLink
+            to="/banquet"
+            className={navClass}
+            onClick={() => setOpen(false)}
+          >
             Banquet
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/gallery" onClick={() => setOpen(false)}>
+          <NavLink
+            to="/gallery"
+            className={navClass}
+            onClick={() => setOpen(false)}
+          >
             Gallery
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/contact" onClick={() => setOpen(false)}>
+          <NavLink
+            to="/contact"
+            className={navClass}
+            onClick={() => setOpen(false)}
+          >
             Contact
-          </Link>
+          </NavLink>
         </li>
-        <Link to="/reservation">
-          <button className="mobile-book-btn">Book Now</button>
-        </Link>
+
+        <li className="mobile-book-wrapper">
+          <NavLink
+            to="/reservation"
+            className="mobile-book-btn"
+            onClick={() => setOpen(false)}
+          >
+            Book Now
+          </NavLink>
+        </li>
       </ul>
-      <button className="book-btn">
-        <Link style={{ textDecoration: "none", color:"black" }} to="/reservation">
-          Book Now
-        </Link>
-      </button>
+
+      <NavLink to="/reservation" className="book-btn">
+        Book Now
+      </NavLink>
 
       <div className="hamburger" onClick={() => setOpen(!open)}>
         <span></span>

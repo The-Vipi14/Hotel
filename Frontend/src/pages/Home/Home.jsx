@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
-import { toast } from "react-toastify";
+import Navbar from "../../components/Navbar/Navbar";
+// import { toast } from "react-toastify";
 
 const images = [
   "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
@@ -23,6 +24,7 @@ const Home = () => {
 
   return (
     <section className="home">
+    
       <div className="hero">
         {images.map((img, i) => (
           <div
@@ -33,9 +35,16 @@ const Home = () => {
         ))}
 
         <div className="hero-overlay">
-          <h1 style={{color:"#fff"}} data-aos="fade-down">Welcome to Ananda Hotel</h1>
+          <h1 style={{ color: "#fff" }} data-aos="fade-down">
+            Welcome to Ananda Hotel
+          </h1>
           <p data-aos="fade-down">Luxury • Comfort • Elegance</p>
-          <Link style={{textDecoration:"none"}} to={"/reservation"} data-aos="fade-down" className="res-btn">
+          <Link
+            style={{ textDecoration: "none" }}
+            to={"/reservation"}
+            data-aos="fade-down"
+            className="res-btn"
+          >
             Reservation
           </Link>
         </div>
@@ -99,7 +108,11 @@ const Home = () => {
         <h2 data-aos="fade-up">Featured Rooms</h2>
 
         <div className="home-room-grid">
-          <div className="home-room-card" data-aos="zoom-in" data-aos-delay="100">
+          <div
+            className="home-room-card"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
             <img
               src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
               alt="Room"
@@ -140,7 +153,12 @@ const Home = () => {
         <h2>Plan Your Stay With Us</h2>
         <p>Experience premium hospitality and unmatched comfort.</p>
         <button>
-          <Link style={{textDecoration:"none", color:"#fff"}} to={"/reservation"}>Book Your Stay</Link>
+          <Link
+            style={{ textDecoration: "none", color: "#fff" }}
+            to={"/reservation"}
+          >
+            Book Your Stay
+          </Link>
         </button>
       </div>
     </section>

@@ -16,10 +16,9 @@ const Reservation = lazy(() => import("./pages/reservation/Reservation"));
 function App() {
   return (
     <div className="app">
-      <Suspense fallback={<Loading/>}>
-        <Navbar />
-
+      <Suspense fallback={<Loading />}>
         <main className="content">
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/rooms" element={<Rooms />} />

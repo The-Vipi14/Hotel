@@ -114,8 +114,9 @@
 
 .banquet-hero {
   position: relative;
-  height: 65vh;
+   height: calc(65vh + 104px); 
   overflow: hidden;
+  margin-top: -104px;
 }
 
 .banquet-slide {
